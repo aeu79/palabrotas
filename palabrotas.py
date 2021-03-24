@@ -23,18 +23,28 @@ def carga_diccionario():
             )  # Armo un set (mucho más rápido porque usa hashes). Me quedo solo hasta el '/' y saco el espacio de las que no lo tienen.
 
 
-def inicio(modo):
+def inicio(modo, letras=None):
     """
     La función que pide los inputs y espera nuevos inputs (para cargar el diccionario en memoria una sola vez).
     Solo se encarga de eso y puede ser llamada repetidas veces (distintos intentos o juegos).
     Palabrotas se encarga de los calculos.
     """
+    previous = False
+    if (
+        letras
+    ):  # I might have letters already if it is a second round (for example to check shorter words)
+        print("Las letras actuales son: ", ", ".join(letras))
+        previous = letras
     if modo == "diccionario":
-        letras = input("Ingrese las letras que deben formar las palabras.\nLetras: ")
+        letras = input(
+            "Ingrese las letras que deben formar las palabras.\nLetras: "
+        ).lower()
+        if previous and (letras == ""):  # If empty, use the previous ones.
+            letras = previous
     else:
         letras = input(
             'Ingrese las letras combinables y palabras para usar enteras después de una "/" (nada para terminar).\nLetras: '
-        )
+        ).lower()
     if letras == "":
         quit()
     long = input("Longitud de la palabra: ")
@@ -61,6 +71,8 @@ def filtrar(candidatas, letras):
 
 
 def palabrotas(modo, letras, longitud):
+    # Save letras for next round
+    old_letras = letras
     # Primero me fijo y separo las palabras que se hayan ingresado con "/"
     letras = letras.split("/")  # If len >1, entonces sí había algo separado por /
     # letras[0] contiene las letras, 1,2, 3, etc. tienen las palabras para usar en la formación de palabras.
@@ -219,8 +231,7 @@ def palabrotas(modo, letras, longitud):
         if input("Quiere ver el resto? (s/n) ") == "s":
             print(set(combinadas))  # set para no repetir elementos
             print("\n")
-    modo = modo
-    inicio(modo)
+    inicio(modo, old_letras)
 
 
 if (
