@@ -27,8 +27,7 @@ gh repo clone aeu79/palabrotas
 ```
 
 Or just copy the script:  
-[Raw version](<https://raw.githubusercontent.
-com/aeu79/palabrotas/main/README>.md) 
+[Raw version](<https://raw.githubusercontent.com/aeu79/palabrotas/main/README>.md) 
 and the [files](files) folder (contains the dictionary)
 
 And then run it with python: `python3 /your/path/to/palabrotas.py`
@@ -108,8 +107,9 @@ the anagram.
 ## Use cases
 
 ### Rebus puzzles
-![Señalada](images/rebus.jpg)  
-[Screen capture from](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
+
+<img src="images/rebus.jpg" width="184">  
+Screenshot from [Apalabrados (Word Crack)](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
 
 
 ### Anagrams
