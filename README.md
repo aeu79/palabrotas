@@ -5,7 +5,8 @@
 ![Python version](https://img.shields.io/badge/Python-%3E%3D%203.6-brightgreen)
 
 ## A program to help you solve rebus puzzles and anagrams
-![Top secrect](images/307px-Top_Secret_Rebus_Puzzle.png)  
+<img src="images/307px-Top_Secret_Rebus_Puzzle.png" width="150">
+
 [Image from](https://en.wikipedia.org/wiki/File:Top_Secret_Rebus_Puzzle.png)  
 
 You must provide the letters that and the length of the word.
@@ -107,9 +108,12 @@ the anagram.
 ## Use cases
 
 ### Rebus puzzles
+<img src="images/rebus.jpg" width="184">
 
-<img src="images/rebus.jpg" width="184">  
 Screenshot from [Apalabrados (Word Crack)](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
+
+Answer:
+<img src="images/rta.png" height="160">
 
 
 ### Anagrams
@@ -127,11 +131,47 @@ Letras: Liam
 
 #### Golden gate vectors design
 
+Get all possible combinations of ACTG taken 3 at a time:
+```
+Eligió modo completo
+Ingrese las letras combinables y palabras para usar enteras después de una "/" (nada para terminar).
+Letras: ACTG
+Longitud de la palabra: 3
+completo
+Son 24 posibilidades.Tardó 0.0 segundos en combinarlas.
+Las principales candidatas (3) son: 
+{'cta', 'gta', 'tac'}
+Filtrar con estas letras (vacío para terminar):
+
+Quiere ver el resto? (s/n) s
+{'cgt', 'atc', 'tga', 'cga', 'gac', 'cta', 'gca', 'ctg', 'agc', 'atg', 'gtc', 'cat', 'tcg', 'tgc', 'agt', 'tac', 'act', 'cag', 'gat', 'tca', 'gct', 'tag', 'gta', 'acg'}
+```
 ## Language
+Currently Spanish, but English coming soon.
 
 ### Building your dictionary
 
-### Note
+#### Spanish (only option for now)
+Instruction to get a dictionary (with verbs conjugated): 
+Clone the repository: ```git clone https://github.com/sbosio/rla-es.git && 
+cd ./rla-es/ && git pull```  
+Install hunspell-tools: ```sudo apt install hunspell-tools```
+Generate the words (unmunch diccionario.dic afijos.aff):
+```bash
+unmunch './ortograf/herramientas/es_ANY.dic' './ortograf/herramientas/es_ANY.aff' > 'palabras_todas.txt'
+```
+Remove the "acentos" á, é, í, ó, ú:
+```
+sed -r 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g' palabras_todas.txt > palabras.txt
+```
+Remove uppercase:
+```
+sed -i 's/\(.*\)/\L\1/' palabras.txt
+```
+And compress is (with python 😅):
+```
+python3 -m zipfile -c palabras.zip palabras.txt
+```
 
 ## TODO
 

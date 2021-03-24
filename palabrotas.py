@@ -254,36 +254,3 @@ if (
         inicio(
             "diccionario"
         )  # En modo diccionario sólo evalúa las que coinciden con el diccionario.
-
-    """ TODO: filtrar el restulado completo
-Algo así, pero podría combinar con palbras textuales, comienzo o final, etc.
-import re
-
-words = ["AMALGAMATED", "AMMONIATED", "CIRCUMAMBULATED", "COMMENTATED", 
-         "TAMTAM", "BLUB", "HOUSE", "SOMETHING"]
-filter = "mmt"
-
-regex = re.compile(".*".join(filter), re.IGNORECASE)
-filtered_words = [word for word in words if regex.search(word)]
-
-print(*filtered_words, sep="\n")
-
-"""
-"""
-INSTRUCCIONES PARA ARMAR EL DICCIONARIO:
-Clono el repositorio del español:
-git clone https://github.com/sbosio/rla-es.git
-Lo actualizo si ya lo tenía
-cd ./rla-es/ && git pull
-Instalo hunspell-tools:
-sudo apt install hunspell-tools
-Y con unmunch diccionario.dic afijos.aff hago todas las combinaciones:
-unmunch '/home/agu/rla-es/ortograf/herramientas/es_ANY.dic' '/home/agu/rla-es/ortograf/herramientas/es_ANY.aff' > '/home/agu/rla-es/ortograf/herramientas/palabras_todas.txt'
-Limpio el listado de acentos (con ; separa cada instrucción independiente, múltiples sed en uno solo):
-El comando: sed -r 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g'; quedaría así:
-sed -r 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g' /home/agu/rla-es/ortograf/herramientas/palabras_todas.txt > /home/agu/rla-es/ortograf/herramientas/palabras.txt
-Y saco las mayúsculas (con -i edito directo en el original)
-sed -i 's/\(.*\)/\L\1/' /home/agu/rla-es/ortograf/herramientas/palabras.txt
-Lo comprimo con:
-python3 -m zipfile -c palabras.zip '/home/agu/rla-es/ortograf/herramientas/palabras.txt'
-"""
