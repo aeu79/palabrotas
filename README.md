@@ -257,6 +257,7 @@ zip palabras_en.zip palabras.txt
 * [x] Document the usage in the readme  
 * [ ] Translate code comments to English  
 * [x] Add the option to run it in Spanish/English  
-* [ ] Automate dictionary creation/update  
+* [ ] Automate dictionary creation/update
+* [ ] Add Swedish dictionary.
 
 TOC created using [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
