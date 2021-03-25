@@ -15,6 +15,29 @@ The script will either combine them and produce every possible word or use a
 dictionary
 to output only "valid" words (faster and very little memory usage).
 
+## Contents
+* [Palabrotas](./palabrotas/README.md#palabrotas)
+  * [A program to help you solve rebus puzzles and anagrams](./palabrotas/README.md#a-program-to-help-you-solve-rebus-puzzles-and-anagrams)
+  * [Running palabrotas.py](./palabrotas/README.md#running-palabrotaspy)
+  * [Usage](./palabrotas/README.md#usage)
+            * [Choose mode](./palabrotas/README.md#choose-mode)
+            * [Letters](./palabrotas/README.md#letters)
+            * [Word length](./palabrotas/README.md#word-length)
+    * [Complete mode](./palabrotas/README.md#complete-mode)
+    * [Dictionary mode](./palabrotas/README.md#dictionary-mode)
+    * [Filter](./palabrotas/README.md#filter)
+  * [Use cases](./palabrotas/README.md#use-cases)
+    * [Rebus puzzles](./palabrotas/README.md#rebus-puzzles)
+    * [Anagrams](./palabrotas/README.md#anagrams)
+    * [Unexpected uses](./palabrotas/README.md#unexpected-uses)
+      * [Your kids' homework](./palabrotas/README.md#your-kids-homework)
+      * [Golden gate vectors design](./palabrotas/README.md#golden-gate-vectors-design)
+  * [Language](./palabrotas/README.md#language)
+    * [Building your dictionary](./palabrotas/README.md#building-your-dictionary)
+      * [Spanish](./palabrotas/README.md#spanish)
+      * [English](./palabrotas/README.md#english)
+  * [TODO](./palabrotas/README.md#todo)
+
 ## Running palabrotas.py
 
 You can clone this repository with either of these options:
@@ -28,11 +51,16 @@ git clone git@github.com:aeu79/palabrotas.git
 gh repo clone aeu79/palabrotas
 ```
 
+And run it:
+
+```bash
+cd palabrotas && python3 palabrotas.py
+```
+
 Or just copy the script:  
 [Raw version](https://raw.githubusercontent.com/aeu79/palabrotas/main/palabrotas.py)
-and the [files](files) folder (which contains the dictionaries)
-
-And then run it with python: `python3 /your/path/to/palabrotas.py`
+and the [files](files) folder (which contains the dictionaries). And then run
+it: `python3 /your/path/to/palabrotas.py`
 
 ## Usage
 
@@ -114,7 +142,7 @@ the anagram.
 
 <img src="images/rebus.jpg" width="184">
 
-Screenshot from [Apalabrados (Word Crack)](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
+Screenshot of [Apalabrados (Word Crack)](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
 
 Answer:
 <img src="images/rta.png" height="160">
@@ -122,6 +150,8 @@ Answer:
 ### Anagrams
 
 <img src="images/anagram1.png" width="184">
+
+Screenshot of [Word of wonder)](https://play.google.com/store/apps/details?id=com.fugo.wow&hl=en&gl=US)
 
 Letters: M F U O R
 
@@ -136,7 +166,7 @@ Main candidates with 3 letters:
 ['for', 'fou', 'fro', 'fum', 'fur', 'mfr', 'our', 'rom', 'rum']
 ```
 
-⮕<img src="images/anagram2.png" width="184">
+<img src="images/anagram2.png" width="184">
 
 And "for"... 🎉
 
@@ -167,9 +197,17 @@ Longitud de la palabra: 3
 
 ## Language  
 
-The language of the dictionary can be either Spanish:
-`python3 /your/path/to/palabrotas.py -es`  
-or English (default): ```python3 /your/path/to/palabrotas.py -en```  
+The language of the dictionary can be Spanish:
+
+```bash
+python3 palabrotas.py -es
+```  
+
+or English (default):
+
+```bash
+python3 palabrotas.py -en
+```  
 
 *Svenska kommer snart*  🤞
 
@@ -177,7 +215,7 @@ or English (default): ```python3 /your/path/to/palabrotas.py -en```
 
 Install hunspell-tools: ```sudo apt install hunspell-tools```
 
-#### Spanish (only option for now)
+#### Spanish
 
 Instruction to get a dictionary (with verbs conjugated):
 Clone the repository: ```git clone https://github.com/sbosio/rla-es.git &&
@@ -217,7 +255,9 @@ zip palabras_en.zip palabras.txt
 
 ## TODO
 
-- [x] Document the usage in the readme  
-- [ ] Translate code comments to English  
-- [x] Add the option to run it in Spanish/English  
-- [ ] Automate dictionary creation/update  
+* [x] Document the usage in the readme  
+* [ ] Translate code comments to English  
+* [x] Add the option to run it in Spanish/English  
+* [ ] Automate dictionary creation/update  
+
+TOC created using [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
