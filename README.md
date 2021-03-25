@@ -5,6 +5,7 @@
 ![Python version](https://img.shields.io/badge/Python-%3E%3D%203.6-brightgreen)
 
 ## A program to help you solve rebus puzzles and anagrams
+
 <img src="images/307px-Top_Secret_Rebus_Puzzle.png" width="150">
 
 [Image from](https://en.wikipedia.org/wiki/File:Top_Secret_Rebus_Puzzle.png)  
@@ -28,8 +29,8 @@ gh repo clone aeu79/palabrotas
 ```
 
 Or just copy the script:  
-[Raw version](<https://raw.githubusercontent.com/aeu79/palabrotas/main/README>.md) 
-and the [files](files) folder (contains the dictionary)
+[Raw version](https://raw.githubusercontent.com/aeu79/palabrotas/main/palabrotas.py)
+and the [files](files) folder (which contains the dictionaries)
 
 And then run it with python: `python3 /your/path/to/palabrotas.py`
 
@@ -55,6 +56,7 @@ In the complete mode, every possible combination is generated. Please, be
 aware  that (at least in my laptop) words of length >14 letters can hang the
 system. Twelve letters long words generate almost 17 million possible
 outcomes. For long words, use only the dictionary mode.  
+
 ```
 Ingrese "c" para modo completo (generar todos los posibles valores) o nada para modo "diccionario" (ingrese "h" para ayuda)
 Modo: c
@@ -71,11 +73,13 @@ Filtrar con estas letras (vacío para terminar):
 Quiere ver el resto? (s/n) s
 {'ani', 'eia', 'bai', 'aan', 'nbi', 'nia', 'ibn', 'bae', 'nie', 'anb', 'nea', 'eab', 'aba', 'ieb', 'abe', 'nei', 'naa', 'aib', 'bia', 'bei', 'abn', 'aeb', 'inb', 'ein', 'bni', 'nba', 'aea', 'enb', 'ain', 'bea', 'ean', 'ane', 'nab', 'aae', 'aie', 'aai', 'ibe', 'bne', 'eai', 'ine', 'baa', 'aia', 'abi', 'nai', 'iab', 'bna', 'eib', 'eba', 'aen', 'iea', 'bie', 'ebi', 'ena', 'ana', 'iba', 'ban', 'iaa', 'nae', 'neb', 'ian', 'bin', 'nib', 'ebn', 'ien', 'eaa', 'aei', 'nbe', 'ben', 'aab', 'iae', 'eni', 'ina'}
 ```
+
 ### Dictionary mode
 
-In the dictionary mode, only words containing the letters introduced are 
-used, which saves a lot of memory and CPU. 
-``` 
+In the dictionary mode, only words containing the letters introduced are
+used, which saves a lot of memory and CPU.
+
+```
 El diccionario tiene 917580 palabras.
 
 Ingrese "c" para modo completo (generar todos los posibles valores) o nada para modo "diccionario" (ingrese "h" para ayuda)
@@ -93,21 +97,21 @@ aspltabaro
 Las principales candidatas (1) son: 
 ['palabrotas']
 Filtrar con estas letras (vacío para terminar):
-``` 
+```
 
-#### Filter
+### Filter
 
 Independently of the mode, the program will try to identify the main
 candidates by filtering with the dictionary. Those words will be on top.
 Still you will be prompted to choose a filter or leave it empty (and press
 enter) to finish. Filtering allows to use some letters that are
-for example pretty clear from the image of a rebus or a known syllable  from 
+for example pretty clear from the image of a rebus or a known syllable  from
 the anagram.
-
 
 ## Use cases
 
 ### Rebus puzzles
+
 <img src="images/rebus.jpg" width="184">
 
 Screenshot from [Apalabrados (Word Crack)](https://play.google.com/store/apps/details?id=com.etermax.apalabrados.lite&hl=es&gl=US)
@@ -115,12 +119,33 @@ Screenshot from [Apalabrados (Word Crack)](https://play.google.com/store/apps/de
 Answer:
 <img src="images/rta.png" height="160">
 
-
 ### Anagrams
 
+<img src="images/anagram1.png" width="184">
+
+Letters: M F U O R
+
+```
+Main candidates with 5 letters:
+['forum']
+...
+Main candidates with 4 letters:
+['form', 'four', 'from']
+...
+Main candidates with 3 letters:
+['for', 'fou', 'fro', 'fum', 'fur', 'mfr', 'our', 'rom', 'rum']
+```
+
+⮕<img src="images/anagram2.png" width="184">
+
+And "for"... 🎉
+
 ### Unexpected uses
+
 #### Your kids' homework
+
 Good to find what words they can make using their names' letters.
+
 ```
 Letras: Dogual 
 ['adulo', 'agudo', 'aludo', 'dogal', 'laudo']
@@ -132,50 +157,67 @@ Letras: Liam
 #### Golden gate vectors design
 
 Get all possible combinations of ACTG taken 3 at a time:
+
 ```
-Eligió modo completo
-Ingrese las letras combinables y palabras para usar enteras después de una "/" (nada para terminar).
 Letras: ACTG
 Longitud de la palabra: 3
-completo
-Son 24 posibilidades.Tardó 0.0 segundos en combinarlas.
-Las principales candidatas (3) son: 
-{'cta', 'gta', 'tac'}
-Filtrar con estas letras (vacío para terminar):
-
-Quiere ver el resto? (s/n) s
+...
 {'cgt', 'atc', 'tga', 'cga', 'gac', 'cta', 'gca', 'ctg', 'agc', 'atg', 'gtc', 'cat', 'tcg', 'tgc', 'agt', 'tac', 'act', 'cag', 'gat', 'tca', 'gct', 'tag', 'gta', 'acg'}
 ```
-## Language
-Currently Spanish, but English coming soon.
+
+## Language  
+
+The language of the dictionary can be either Spanish:
+`python3 /your/path/to/palabrotas.py -es`  
+or English (default): ```python3 /your/path/to/palabrotas.py -en```  
+
+*Svenska kommer snart*  🤞
 
 ### Building your dictionary
 
-#### Spanish (only option for now)
-Instruction to get a dictionary (with verbs conjugated): 
-Clone the repository: ```git clone https://github.com/sbosio/rla-es.git && 
-cd ./rla-es/ && git pull```  
 Install hunspell-tools: ```sudo apt install hunspell-tools```
+
+#### Spanish (only option for now)
+
+Instruction to get a dictionary (with verbs conjugated):
+Clone the repository: ```git clone https://github.com/sbosio/rla-es.git &&
+cd ./rla-es/ && git pull```  
+
 Generate the words (unmunch diccionario.dic afijos.aff):
+
 ```bash
 unmunch './ortograf/herramientas/es_ANY.dic' './ortograf/herramientas/es_ANY.aff' > 'palabras_todas.txt'
 ```
+
 Remove the "acentos" á, é, í, ó, ú:
+
 ```
 sed -r 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g' palabras_todas.txt > palabras.txt
 ```
+
 Remove uppercase:
+
 ```
 sed -i 's/\(.*\)/\L\1/' palabras.txt
 ```
-And compress is (with python 😅):
+
+And compress it (with python 😅):
+
 ```
-python3 -m zipfile -c palabras.zip palabras.txt
+python3 -m zipfile -c palabras_es.zip palabras.txt
+```
+
+#### English
+
+```bash
+wget https://archlinux.org/packages/extra/any/hunspell-en_gb/download/
+unmunch en_GB-large.dic en_GB-large.aff > palabras.txt
+zip palabras_en.zip palabras.txt
 ```
 
 ## TODO
 
-[X] Document the usage in the readme  
-[] Translate code comments to English  
-[] Add the option to run it in Spanish/English
-[] Automate dictionary creation/update  
+- [x] Document the usage in the readme  
+- [ ] Translate code comments to English  
+- [x] Add the option to run it in Spanish/English  
+- [ ] Automate dictionary creation/update  
