@@ -16,26 +16,25 @@ dictionary
 to output only "valid" words (faster and very little memory usage).
 
 ## Contents
-
-* [Running palabrotas.py](./palabrotas/README.md#running-palabrotaspy)
-* [Usage](./palabrotas/README.md#usage)
-            * [Choose mode](./palabrotas/README.md#choose-mode)
-            * [Letters](./palabrotas/README.md#letters)
-            * [Word length](./palabrotas/README.md#word-length)
-  * [Complete mode](./palabrotas/README.md#complete-mode)
-  * [Dictionary mode](./palabrotas/README.md#dictionary-mode)
-  * [Filter](./palabrotas/README.md#filter)
-* [Use cases](./palabrotas/README.md#use-cases)
-  * [Rebus puzzles](./palabrotas/README.md#rebus-puzzles)
-  * [Anagrams](./palabrotas/README.md#anagrams)
-  * [Unexpected uses](./palabrotas/README.md#unexpected-uses)
-    * [Your kids' homework](./palabrotas/README.md#your-kids-homework)
-    * [Golden gate vectors design](./palabrotas/README.md#golden-gate-vectors-design)
-* [Language](./palabrotas/README.md#language)
-  * [Building your dictionary](./palabrotas/README.md#building-your-dictionary)
-    * [Spanish](./palabrotas/README.md#spanish)
-    * [English](./palabrotas/README.md#english)
-* [TODO](./palabrotas/README.md#todo)
+* [Running palabrotas.py](#running-palabrotaspy)
+* [Usage](#usage)
+  * [Choose mode](#choose-mode)
+  * [Letters](#letters)
+  * [Word length](#word-length)
+  * [Complete mode](#complete-mode)
+  * [Dictionary mode](#dictionary-mode)
+  * [Filter](#filter)
+* [Use cases](#use-cases)
+  * [Rebus puzzles](#rebus-puzzles)
+  * [Anagrams](#anagrams)
+  * [Unexpected uses](#unexpected-uses)
+    * [Your kids' homework](#your-kids-homework)
+    * [Golden gate vectors design](#golden-gate-vectors-design)
+* [Language](#language)
+  * [Building your dictionary](#building-your-dictionary)
+    * [Spanish](#spanish)
+    * [English](#english)
+* [TODO](#todo)
 
 ## Running palabrotas.py
 
@@ -56,24 +55,23 @@ And run it:
 cd palabrotas && python3 palabrotas.py
 ```
 
-Or just copy the script:  
-[Raw version](https://raw.githubusercontent.com/aeu79/palabrotas/main/palabrotas.py)
-and the [files](files) folder (which contains the dictionaries). And then run
-it: `python3 /your/path/to/palabrotas.py`
+Or just copy the [script](https://raw.githubusercontent.com/aeu79/palabrotas/main/palabrotas.py)
+and the ["files"](files) folder (which contains the dictionaries).
+Then run it: `python3 /your/path/to/palabrotas.py`
 
 ## Usage
 
-#### Choose mode
+### Choose mode
 
 First, you will be prompted to choose between the complete (press "c") or  
 dictionary (leave empty) modes.
 
-#### Letters
+### Letters
 
 After pressing enter, you have to input the letters. Every letter is used
-only once, so you need to repeat them as many times as you might need.
+only once, so you need to repeat them as many times as you need.
 
-#### Word length
+### Word length
 
 Enter the word length and press enter.
 
@@ -82,48 +80,45 @@ Enter the word length and press enter.
 In the complete mode, every possible combination is generated. Please, be
 aware  that (at least in my laptop) words of length >14 letters can hang the
 system. Twelve letters long words generate almost 17 million possible
-outcomes. For long words, use only the dictionary mode.  
+outcomes. For very long words, you should use only the dictionary mode.
+Example run  in "complete" mode (-en, English version):
 
 ```
-Ingrese "c" para modo completo (generar todos los posibles valores) o nada para modo "diccionario" (ingrese "h" para ayuda)
-Modo: c
-Eligió modo completo
-Ingrese las letras combinables y palabras para usar enteras después de una "/" (nada para terminar).
-Letras: aeiban
-Longitud de la palabra: 3
-completo
-Son 72 posibilidades.Tardó 0.0 segundos en combinarlas.
-Las principales candidatas (6) son: 
-{'iba', 'ine', 'nia', 'ben', 'nea', 'ana'}
-Filtrar con estas letras (vacío para terminar):
+The dictionary (English) has 170588 words.
 
-Quiere ver el resto? (s/n) s
-{'ani', 'eia', 'bai', 'aan', 'nbi', 'nia', 'ibn', 'bae', 'nie', 'anb', 'nea', 'eab', 'aba', 'ieb', 'abe', 'nei', 'naa', 'aib', 'bia', 'bei', 'abn', 'aeb', 'inb', 'ein', 'bni', 'nba', 'aea', 'enb', 'ain', 'bea', 'ean', 'ane', 'nab', 'aae', 'aie', 'aai', 'ibe', 'bne', 'eai', 'ine', 'baa', 'aia', 'abi', 'nai', 'iab', 'bna', 'eib', 'eba', 'aen', 'iea', 'bie', 'ebi', 'ena', 'ana', 'iba', 'ban', 'iaa', 'nae', 'neb', 'ian', 'bin', 'nib', 'ebn', 'ien', 'eaa', 'aei', 'nbe', 'ben', 'aab', 'iae', 'eni', 'ina'}
+Enter "c" for "complete" mode (all possible combinations).
+Leave empty for "dictionary" mode.
+Mode: c
+Complete mode.
+Enter the letters to be combined. Sub-words can be used to be combined with the other letters and can must be indicated after a "/" (leave empty to finish).
+Letters: aetor
+Length of the word: 3
+There are 60 possibilities. It took 0.0 seconds to combine them.
+The main candidates (23) with 3 letters are: 
+{'ore', 'era', 'rte', 'roe', 'toe', 'tor', 'rat', 'eat', 'tea', 'ret', 'aet', 'art', 'tar', 'eta', 'are', 'ear', 'oar', 'ort', 'oat', 'rot', 'ate', 'ora', 'ter'}
+Filter out words using these letters (leave empty to finish):
+
+Do you want to see all of them? (y/n)y
+{'eot', 'aoe', 'rta', 'teo', 'ore', 'tro', 'era', 'roa', 'rte', 'rae', 'roe', 'toe', 'tor', 'oet', 'eat', 'rat', 'oea', 'tea', 'ret', 'tao', 'tre', 'aet', 'ote', 'aeo', 'tra', 'atr', 'rao', 'art', 'tar', 'eta', 'are', 'ear', 'tae', 'eao', 'oar', 'eor', 'ota', 'eto', 'aor', 'toa', 'etr', 'aer', 'ort', 'ert', 'oer', 'rto', 'aot', 'rea', 'ero', 'oae', 'oat', 'otr', 'rot', 'reo', 'ate', 'aro', 'ora', 'eoa', 'ter', 'ato'}
 ```
 
 ### Dictionary mode
 
 In the dictionary mode, only words containing the letters introduced are
 used, which saves a lot of memory and CPU.
+Example run  in "dictionary" mode (-es, Spanish version):
 
 ```
-El diccionario tiene 917580 palabras.
+El diccionario (Spanish) tiene 917580 palabras.
 
-Ingrese "c" para modo completo (generar todos los posibles valores) o nada para modo "diccionario" (ingrese "h" para ayuda)
+Ingrese "c" para modo completo (generar todos los posibles valores) o nada para modo "diccionario" 
 Modo: 
-Eligió modo diccionario
+Eligió modo diccionario.
 Ingrese las letras que deben formar las palabras.
-Letras: aspltabaro
+Letras (q para terminar): aspltabaro
 Longitud de la palabra: 10
-diccionario
-aspltabaro
-{'p', 'b', 'r', 'l', 'o', 't', 'a', 's'}
-[1, 1, 1, 1, 1, 1, 3, 1]
-215
-1
-Las principales candidatas (1) son: 
+Las principales candidatas (1) con 10 letras son: 
 ['palabrotas']
-Filtrar con estas letras (vacío para terminar):
 ```
 
 ### Filter
@@ -150,7 +145,7 @@ Answer:
 
 <img src="images/anagram1.png" width="184">
 
-Screenshot of [Word of wonder)](https://play.google.com/store/apps/details?id=com.fugo.wow&hl=en&gl=US)
+Screenshot of [Word of wonders)](https://play.google.com/store/apps/details?id=com.fugo.wow&hl=en&gl=US)
 
 Letters: M F U O R
 
@@ -196,16 +191,18 @@ Longitud de la palabra: 3
 
 ## Language  
 
-The language of the dictionary can be Spanish:
+The can run in English or Spainsh and using the corresponding dictionary
 
-```bash
-python3 palabrotas.py -es
-```  
-
-or English (default):
+English (default):
 
 ```bash
 python3 palabrotas.py -en
+```
+
+Spanish:
+
+```bash
+python3 palabrotas.py -es
 ```  
 
 *Svenska kommer snart*  🤞
@@ -216,31 +213,37 @@ Install hunspell-tools: ```sudo apt install hunspell-tools```
 
 #### Spanish
 
-Instruction to get a dictionary (with verbs conjugated):
-Clone the repository: ```git clone https://github.com/sbosio/rla-es.git &&
-cd ./rla-es/ && git pull```  
+Instruction to create the Spanish dictionary:
 
-Generate the words (unmunch diccionario.dic afijos.aff):
+* Clone the repository
+
+```bash
+git clone https://github.com/sbosio/rla-es.git &&
+cd ./rla-es/ && git pull
+```  
+
+* Generate the words, including plurals, conjugated verbs, etc. (unmunch 
+  diccionario.dic afijos.aff):
 
 ```bash
 unmunch './ortograf/herramientas/es_ANY.dic' './ortograf/herramientas/es_ANY.aff' > 'palabras_todas.txt'
 ```
 
-Remove the "acentos" á, é, í, ó, ú:
+* Remove the accent marks (á, é, í, ó, ú and uppercase variants):
 
-```
+```bash
 sed -r 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g' palabras_todas.txt > palabras.txt
 ```
 
-Remove uppercase:
+* Remove uppercase:
 
-```
+```bash
 sed -i 's/\(.*\)/\L\1/' palabras.txt
 ```
 
-And compress it (with python 😅):
+* And compress it (with python 😅):
 
-```
+```bash
 python3 -m zipfile -c palabras_es.zip palabras.txt
 ```
 
