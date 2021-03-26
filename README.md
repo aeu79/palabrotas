@@ -255,6 +255,22 @@ unmunch en_GB-large.dic en_GB-large.aff > palabras.txt
 zip palabras_en.zip palabras.txt
 ```
 
+#### Swedish
+From the palabrotas directory run:
+```bash
+mkdir files/svenska
+cd files/svenska
+wget https://extensions.libreoffice.org/assets/downloads/z/ooo-swedish-dict-2-42.oxt
+mv -v ooo-swedish-dict-2-42.oxt svenska.zip
+unzip svenska.zip
+unmunch dictionaries/sv_SE.dic dictionaries/sv_SE.aff > ./palabras.txt
+sed -ir 's/á/a/g;s/Á/a/g;s/É/e/g;s/é/e/g;s/Í/i/g;s/í/i/g;s/Ó/o/g;s/ó/o/g;s/Ú/u/g;s/ú/u/g' ./palabras.txt
+sed -i 's/\(.*\)/\L\1/' palabras.txt
+cd ..
+(zip -j ./palabras_sv.zip svenska/palabras.txt) && (rm -r ./svenska/* && rmdir ./svenska)
+```
+
+
 ## TODO
 
 * [x] Document the usage in the readme  
