@@ -284,10 +284,10 @@ cd ..
 
 ## TODO
 
-* [ x ] Document the usage in the readme  
+* [X] Document the usage in the readme  
 * [ ] Translate code comments to English  
-* [ x ] Add the option to run it in Spanish/English  
+* [X] Add the option to run it in Spanish/English  
 * [ ] Automate dictionary creation/update (update it at least every 10-50 years)
-* [ x ] Add Swedish dictionary.
+* [X] Add Swedish dictionary.
 
 TOC created using [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
