@@ -14,6 +14,8 @@ def carga_diccionario(language):
         zip_path = os.path.join(directorio, "files", "palabras_es.zip")
     elif language == "english":
         zip_path = os.path.join(directorio, "files", "palabras_en.zip")
+    elif language == "swedish":
+        zip_path = os.path.join(directorio, "files", "palabras_sv.zip")
     name = "palabras.txt"
     with zipfile.ZipFile(zip_path, "r") as myzip:
         # zinfo = myzip.namelist() # Esto si no conociera el nombre del archivo
@@ -278,14 +280,18 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
-        "-e",
+        "-en",
         "--english",
         action="store_true",
         help="Use the English dictionary (default)",
     )
     group.add_argument(
-        "-s", "--spanish", action="store_true", help="Use the Spanish dictionary"
+        "-es", "--spanish", action="store_true", help="Use the Spanish dictionary"
     )
+    group.add_argument(
+        "-sv", "--swedish", action="store_true", help="Use the Spanish dictionary"
+    )
+
     global args
     args = parser.parse_args()
     if args.spanish:
@@ -293,6 +299,12 @@ if __name__ == "__main__":
             "spanish"
         )  # Carga el diccionario al principio para tenerlo en memoria y poder usarlo varias veces sin recargarlo.
         lang = "Spanish"
+        print(f"El diccionario ({lang}) tiene {str(len(set_dict))} palabras.\n")
+    elif args.swedish:
+        carga_diccionario(
+            "swedish"
+        )  # Carga el diccionario al principio para tenerlo en memoria y poder usarlo varias veces sin recargarlo.
+        lang = "Swedish"
         print(f"El diccionario ({lang}) tiene {str(len(set_dict))} palabras.\n")
     else:
         carga_diccionario("english")

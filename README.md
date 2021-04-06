@@ -16,6 +16,7 @@ dictionary
 to output only "valid" words (faster and very little memory usage).
 
 ## Contents
+
 * [Running palabrotas.py](#running-palabrotaspy)
 * [Usage](#usage)
   * [Choose mode](#choose-mode)
@@ -56,8 +57,13 @@ cd palabrotas && python3 palabrotas.py
 ```
 
 Or just copy the [script](https://raw.githubusercontent.com/aeu79/palabrotas/main/palabrotas.py)
-and the ["files"](files) folder (which contains the dictionaries).
-Then run it: `python3 /your/path/to/palabrotas.py`
+and the ["files"](files) folder (which contains the dictionaries).  
+Then run it with: `python3 /your/path/to/palabrotas.py`
+And you can indicate the dictionary to use with one of these arguments:  
+`-en` or `--english` (default)  
+`-es` or `--spanish`  
+`-sv` or `--swedish`  
+
 
 ## Usage
 
@@ -205,7 +211,11 @@ Spanish:
 python3 palabrotas.py -es
 ```  
 
-*Svenska kommer snart*  🤞
+Svenska:
+
+```bash
+python3 palabrotas.py -sv
+```
 
 ### Building your dictionary
 
@@ -222,7 +232,7 @@ git clone https://github.com/sbosio/rla-es.git &&
 cd ./rla-es/ && git pull
 ```  
 
-* Generate the words, including plurals, conjugated verbs, etc. (unmunch 
+* Generate the words, including plurals, conjugated verbs, etc. (unmunch
   diccionario.dic afijos.aff):
 
 ```bash
@@ -256,7 +266,9 @@ zip palabras_en.zip palabras.txt
 ```
 
 #### Swedish
+
 From the palabrotas directory run:
+
 ```bash
 mkdir files/svenska
 cd files/svenska
@@ -270,13 +282,12 @@ cd ..
 (zip -j ./palabras_sv.zip svenska/palabras.txt) && (rm -r ./svenska/* && rmdir ./svenska)
 ```
 
-
 ## TODO
 
-* [x] Document the usage in the readme  
+* [ x ] Document the usage in the readme  
 * [ ] Translate code comments to English  
-* [x] Add the option to run it in Spanish/English  
-* [ ] Automate dictionary creation/update
-* [ ] Add Swedish dictionary.
+* [ x ] Add the option to run it in Spanish/English  
+* [ ] Automate dictionary creation/update (update it at least every 10-50 years)
+* [ x ] Add Swedish dictionary.
 
 TOC created using [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
